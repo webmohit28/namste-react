@@ -1,0 +1,29 @@
+.card {
+  margin-bottom: 25px;
+
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.shimmer-item {
+  .card {
+    height: 300px;
+    background: #eee;
+  }
+}
+
+.search-box {
+  display: flex;
+  max-width: 75%;
+}
