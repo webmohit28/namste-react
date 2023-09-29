@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const HeaderComponent = () => {
   const [btnName, setBtnName] = useState('Log In');
@@ -15,18 +16,28 @@ const HeaderComponent = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <a className="navbar-brand" href="#">
-            <img src="https://tmlogosave.s3.ap-south-1.amazonaws.com/5348075.jpeg" alt="Swiggy" style={{ maxHeight: "85px" }} />
+            <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" alt="Swiggy" style={{ maxWidth: "150px" }} />
           </a>
           <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
             <ul className="navbar-nav  mb-2 mb-lg-0 d-flex">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <Link to="/" className="nav-link"> Home</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                {/* <Link to="/about" className="nav-link"> About Us</Link> */}
+                <NavLink
+                  to="/about"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
+                  }
+                >
+                  About Us
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <NavLink to="/contact" className={({ isActive, isPending }) =>
+                  isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
+                }> Contact Us</NavLink>
               </li>
               <li className="nav-item">
                 <button className={btnName === 'Log In' ? 'nav-link btn-login' : 'nav-link btn-logout'} onClick={setAutorizeBtn}>{btnName}</button>

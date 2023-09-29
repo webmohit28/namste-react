@@ -1,14 +1,14 @@
 const Shimmer = () => {
   return (
-    <div className="container ">
+    <div className="container p-0">
       <div className="row shimmer-item m-0">
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
-        <div className="card col-md-3"> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
+        <div className="col-md-3"><div className="card"></div> </div>
       </div>
     </div>
   )

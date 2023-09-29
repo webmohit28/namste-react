@@ -19,11 +19,42 @@
 .shimmer-item {
   .card {
     height: 300px;
-    background: #eee;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(90deg, #ebeff2 8%, #f9fafb 18%, #ebeff2 33%);
+    background-size: 800px 104px;
+    margin-bottom: 15px;
+    position: relative;
   }
 }
 
 .search-box {
   display: flex;
   max-width: 75%;
+}
+
+header {
+  background: #edededee;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+
+  .nav-item {
+    margin-left: 15px;
+  }
+}
+
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
 }

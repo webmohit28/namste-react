@@ -3,7 +3,13 @@ import ReactDOM from "react-dom/client";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from "./components/HeaderComponent";
 import Appbody from "./components/Appbody";
-import '../index.scss'
+import '../index.scss';
+import About from "./components/About";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import RestaurantMenu from "./components/RestaurantMenu";
+
 
 // const heading = document.createElement('h1');
 // heading.innerText = 'Welcome React';
@@ -33,11 +39,28 @@ const AppLayout = () => {
   return (
     <div className="app ">
       <HeaderComponent />
-      <Appbody />
+      <div className="main-content">
+        <div className="container">
+          <Outlet />
+        </div>
+      </div>
     </div>
   )
 }
 
-root.render(<AppLayout />);
+const appRouter = createBrowserRouter([
+  {
+    path: '/', element: <AppLayout />,
+    children: [
+      { path: '/', element: <Appbody /> },
+      { path: '/about', element: <About /> },
+      { path: '/contact', element: <Contact /> },
+      { path: '/restaurants/:id', element: <RestaurantMenu /> }
+    ], errorElement: <Error />
+  },
+
+])
+
+root.render(<RouterProvider router={appRouter} />);
 
 

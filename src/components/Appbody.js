@@ -41,21 +41,19 @@ const Appbody = () => {
   }
 
   return listOfRestaurants?.length === 0 ? <Shimmer /> : (
-    <div className="main-content">
-      <div className="container">
-        <div className="search-container my-3 row">
-          <div className="search-box "><input type="text" placeholder="seach-item" className="form-control" value={searchText} onChange={getSearchText} />
-            <button className="col-3 btn btn-dark" onClick={getSearchlist}>Submit</button>
-          </div>
-          <button className="btn btn-secondary col-3" onClick={showFilterReestaurant}>Filter Top Rated restaurant</button>
+    <div className="body-container">
+      <div className="search-container my-3 row">
+        <div className="search-box "><input type="text" placeholder="seach-item" className="form-control" value={searchText} onChange={getSearchText} />
+          <button className="col-3 btn btn-dark" onClick={getSearchlist}>Submit</button>
         </div>
-        <div className="card-container">
-          <div className="row">
+        <button className="btn btn-secondary col-3" onClick={showFilterReestaurant}>Filter Top Rated restaurant</button>
+      </div>
+      <div className="card-container">
+        <div className="row">
 
-            {
-              filteredRestaurant?.map((restaurant) => (<RestaurantCard resData={restaurant} key={restaurant?.info?.id} />))
-            }
-          </div>
+          {
+            filteredRestaurant?.map((restaurant) => (<RestaurantCard resData={restaurant} key={restaurant?.info?.id} />))
+          }
         </div>
       </div>
     </div>
