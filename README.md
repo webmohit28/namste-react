@@ -62,14 +62,20 @@ import {Component} from "path";
 # React Hooks
  (Normal JS utility functions)
 - useState() - Superpowerful State Variables in react
-- useEffect()
+- useEffect() - used for api call 
+it takes two arguments, one is callback and other is dependency array
+blank dependency array - useEffect(()=>{},[]) - call api at inital level
+no dependency array - useEffect(()=>{}) - call api at everytime whenever component reender
+specific depency array - useEffect(()=>{},[callapi]) - call api at specific variable changes
 
-
+# Router - react-router-dom
+- import createBrowserRouter, Outlet, RouterProvider  
+- useParams, Link
+- useRouteError
 
 #  2 types Routing in web apps
  - Client Side Routing
  - Server Side Routing
-
 
 
 

@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
+  const { name, cuisines, avgRating, cloudinaryImageId, id } = resData?.info;
 
   return (
     <div className="col-md-3" >
@@ -10,7 +12,7 @@ const RestaurantCard = (props) => {
           <h5 className="card-title">{name}</h5>
           <p className="card-content">{cuisines.join(', ')}</p>
           <p className="card-text">{avgRating + 'star'}- {resData?.info.sla.deliveryTime + 'min'}</p>
-          <a href="#" className="btn btn-primary ">Go somewhere</a>
+          <Link to={'restaurants/' + id} className="btn btn-primary ">Go somewhere</Link>
         </div>
       </div>
     </div>

@@ -21,7 +21,14 @@ const HeaderComponent = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
             <ul className="navbar-nav  mb-2 mb-lg-0 d-flex">
               <li className="nav-item">
-                <Link to="/" className="nav-link"> Home</Link>
+                <NavLink
+                  to="/"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav-item">
                 {/* <Link to="/about" className="nav-link"> About Us</Link> */}
