@@ -5,7 +5,7 @@ const Error = () => {
   console.log(err);
   return (
     <section className="not-found">
-      <h2>Note Found</h2>
+      <h2>Not Found</h2>
       <h4>{err.status}-{err.statusText}</h4>
     </section>
   )

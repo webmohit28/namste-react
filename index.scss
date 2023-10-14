@@ -48,6 +48,14 @@ header {
   }
 }
 
+.restaurant-card {
+  max-width: 75%;
+  margin: auto;
+  background: #f6f6f6;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 
 @keyframes placeHolderShimmer {
   0% {
