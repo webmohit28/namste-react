@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  console.log(props);
   const { name, cuisines, avgRating, cloudinaryImageId, id } = resData?.info;
 
   return (
-    <div className="col-md-3" >
+    <div className="col-md-4" >
       <div className="card ">
         <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/' + cloudinaryImageId} className="card-img-top" alt="..." />
         <div className="card-body">

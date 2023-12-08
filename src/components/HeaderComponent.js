@@ -19,7 +19,7 @@ const HeaderComponent = () => {
             <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png" alt="Swiggy" style={{ maxWidth: "150px" }} />
           </a>
           <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
-            <ul className="navbar-nav  mb-2 mb-lg-0 d-flex">
+            <ul className="navbar-nav  mb-2 mb-lg-0 d-flex w-100 justify-content-end">
               <li className="nav-item">
                 <NavLink
                   to="/"
@@ -46,7 +46,7 @@ const HeaderComponent = () => {
                   isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
                 }> Contact Us</NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ml-auto">
                 <button className={btnName === 'Log In' ? 'nav-link btn-login' : 'nav-link btn-logout'} onClick={setAutorizeBtn}>{btnName}</button>
               </li>
             </ul>

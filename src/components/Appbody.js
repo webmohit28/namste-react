@@ -23,38 +23,42 @@ const Appbody = () => {
     console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
-
   const showFilterReestaurant = () => {
     const filterlist = listOfRestaurants.filter((restaurant) => restaurant?.info?.avgRating >= 4.4);
     setFilteredRestaurant(filterlist);
   }
 
   const getSearchlist = () => {
-    const filteredSearchList = listOfRestaurants.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLocaleLowerCase()));
+    const filteredSearchList = listOfRestaurants.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredRestaurant(filteredSearchList);
   }
-  const getSearchText = (e) => {
+  const showfilterResItem = (e) => {
     setSearchText(e.target.value);
     if (e.target.value == "") {
       setFilteredRestaurant(listOfRestaurants);
+    }
+    else {
+      const filteredSearchList = listOfRestaurants.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase()));
+      setFilteredRestaurant(filteredSearchList);
     }
   }
 
   return listOfRestaurants?.length === 0 ? <Shimmer /> : (
     <div className="body-container">
       <div className="search-container my-3 row">
-        <div className="search-box "><input type="text" placeholder="seach-item" className="form-control" value={searchText} onChange={getSearchText} />
-          <button className="col-3 btn btn-dark" onClick={getSearchlist}>Submit</button>
+        <div className="search-box "><input type="text" placeholder="Seach Item" className="form-control" value={searchText} onChange={showfilterResItem} />
+          {/* <button className="col-3 btn btn-dark" onClick={getSearchlist}>Submit</button> */}
         </div>
-        <button className="btn btn-secondary col-3" onClick={showFilterReestaurant}>Filter Top Rated restaurant</button>
+        <button className="btn btn-warning filter-btn" onClick={showFilterReestaurant}>Filter Top Rated restaurant</button>
       </div>
       <div className="card-container">
         <div className="row">
-
           {
             filteredRestaurant?.map((restaurant) => (<RestaurantCard resData={restaurant} key={restaurant?.info?.id} />))
           }
         </div>
+
+
       </div>
     </div>
   )

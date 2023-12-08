@@ -1,3 +1,42 @@
+header {
+  background: #ffffff;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eeee;
+  box-shadow: 0 2px 4px -1px rgba(57, 76, 96, .15);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  .nav-item {
+    margin-left: 30px;
+
+  }
+
+  .btn-login {
+    background: #4CAF50;
+    border-radius: 6px;
+    min-width: 100px;
+    display: block;
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+.filter-btn {
+  max-width: max-content;
+  margin-left: auto;
+}
+
+
+body {
+  background: #f1f7f6;
+}
+
+.container {
+  max-width: 1200px;
+}
+
 .card {
   margin-bottom: 25px;
 
@@ -14,6 +53,11 @@
     display: block;
     overflow: hidden;
   }
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #4CAF50;
 }
 
 .shimmer-item {
@@ -37,16 +81,7 @@
   max-width: 75%;
 }
 
-header {
-  background: #ffbf61;
-  padding: 10px 0;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ccc;
 
-  .nav-item {
-    margin-left: 15px;
-  }
-}
 
 .restaurant-card {
   max-width: 75%;

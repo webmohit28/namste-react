@@ -9,6 +9,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import FooterComponent from "./components/FooterComponent";
 
 
 // const heading = document.createElement('h1');
@@ -44,6 +45,7 @@ const AppLayout = () => {
           <Outlet />
         </div>
       </div>
+      <FooterComponent />
     </div>
   )
 }

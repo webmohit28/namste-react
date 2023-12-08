@@ -10,13 +10,13 @@ const RestaurantMenu = () => {
   useEffect(() => { fetchMenu(); }, []);
 
   const { resId } = useParams();
-
+  const [isActive, setIsActive] = useState(false);
 
   const fetchMenu = async () => {
     const apidata = await fetch(Menu_API + resId);
     const response = await apidata.json();
-    setResInfo(response);
     console.log(response);
+    setResInfo(response);
   }
 
   if (resInfo === null) return <Shimmer />
@@ -38,10 +38,10 @@ const RestaurantMenu = () => {
 
         if (item?.card?.card?.categories) {
           return (
-            <div className='menu-block' key={item?.card?.card?.id}>
-              <h4> {item?.card?.card?.title}</h4>
-
-              <ul>
+            <div className='menu-block test' key={item?.card?.card?.id}>
+              <h4 onClick={() => setIsActive(!isActive)}> {item?.card?.card?.title}<span>{isActive ? '-' : '+'}</span>
+              </h4>
+              {isActive && <ul>
                 {item?.card?.card?.categories.map((item, index) => (
                   <div key={index}>
                     <h6> {item?.title}({item?.itemCards?.length})</h6>
@@ -56,20 +56,21 @@ const RestaurantMenu = () => {
                   </div>
                 )
                 )}
-              </ul>
+              </ul>}
             </div>
           );
         }
         else {
           return (
-            <div className='menu-block' key={item?.card?.card?.id}>
-              <h4> {item?.card?.card?.title}({item?.card?.card?.itemCards?.length})</h4>
-              <ul>
+
+            <div className='menu-block test2' key={item?.card?.card?.id}>
+              <h4 onClick={() => setIsActive(!isActive)}> {item?.card?.card?.title}({item?.card?.card?.itemCards?.length})<span>{isActive ? '-' : '+'}</span></h4>
+              {isActive && <ul>
                 {item?.card?.card?.itemCards?.filter(item => item?.card?.info?.isVeg === 1).map((item) => (
                   <li key={item?.card?.info?.id}>{item?.card?.info?.name} - <strong>{item?.card?.info?.defaultPrice ? item?.card?.info?.defaultPrice / 100 : item?.card?.info?.price / 100}</strong></li>
                 )
                 )}
-              </ul>
+              </ul>}
             </div>
           );
         }

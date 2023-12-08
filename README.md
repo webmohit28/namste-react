@@ -1,4 +1,5 @@
 # Namaste React 🚀
+https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb24%3D
 
 
 # Parcel
@@ -43,9 +44,18 @@
  */
 
 
+* JSX 
+- sanitise the data by {} 
 
- Two types of Export/Import
 
+# props 
+- when you have dynamically pass some data to a component, you pass as a prop
+- passing props to a component is similar to pass argument to a function()
+
+# config driveen UI
+- our webiste is driveen by data or config 
+
+# Two types of Export/Import
 
 - Default Export/Import
 
@@ -53,20 +63,49 @@ export default Component;
 import Component from "path";
 
 
-- Named Export/Import
+- Named Export/Import(when we need to export multiple item from signle file)
 
-export const Component;
+export const Component; 
 import {Component} from "path";
 
-# React Componet
+# why React fast
+it do fast way of dom maipulation (ui layer and data layer should sync in fast way)
+react make dom operation superfast and efficient by rerender the component
+it use reconcilation algoritm or it known as React fiber (React 16)
+virtual dom is representation of actual DOM in JS object way
+it findout the difference between virtal dom and update the component UI
+
+# Monolith and Micro service architecure
+
+# React Componet (rafce - shortcut to create comp)
 - functional Component - is a function that return a piece of jsx
 - class based component - is a class which extends react.component and has a render method which return a piece of jsx
 
+# class based component 
+- render(){return(<div></div>);}
+- props- constructor(props){super(props);}  //this.props.name
+- declare variable - this.state = {count: 1}  // call in counstructor
+- update variable - this.setstate({count: this.state.count+1})
+
+# mounting cycle / loading cycle / Life cycle method of class based components
+- parent constructor
+- parent render 
+- child constructor
+- child render
+- child componentDidMount()
+- parent componentDidMount()
+- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+# componentDidMount 
+- to call api in class based component 
+
+# local state variable - super powerful variable
+- whenever state variable changes reeact rerender the componnent
 
 # React Hooks
  (Normal JS utility functions)
 - useState() - Superpowerful State Variables in react
-- useEffect() - used for api call 
+- useEffect() - used for api call (after render cycle completed, it is called)
 - it takes two arguments, one is callback and other is dependency array
 - blank dependency array - useEffect(()=>{},[]) - call api at inital level
 - no dependency array - useEffect(()=>{}) - call api at everytime whenever component reender
