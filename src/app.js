@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from "./components/HeaderComponent";
 import Appbody from "./components/Appbody";
 import '../index.scss';
+import '../index.css';
 import About from "./components/About";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import FooterComponent from "./components/FooterComponent";
+import ChatComponent from "./components/ChatComponent";
 
 
 // const heading = document.createElement('h1');
@@ -46,6 +48,7 @@ const AppLayout = () => {
         </div>
       </div>
       <FooterComponent />
+      <ChatComponent />
     </div>
   )
 }

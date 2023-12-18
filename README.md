@@ -88,16 +88,17 @@ it findout the difference between virtal dom and update the component UI
 - update variable - this.setstate({count: this.state.count+1})
 
 # mounting cycle / loading cycle / Life cycle method of class based components
-- parent constructor
-- parent render 
-- child constructor
-- child render
-- child componentDidMount()
-- parent componentDidMount()
+- parent constructor  //rendering phase
+- parent render       //rendering phase
+- child constructor   //rendering phase
+- child render         //rendering phase
+- child componentDidMount()  //commiit phase  
+- parent componentDidMount() //commiit phase  
 - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 # componentDidMount 
 - to call api in class based component 
+- instead of waiting api response, react make render the component first with dummy data and then fill the api data inside the component
 
 # local state variable - super powerful variable
 - whenever state variable changes reeact rerender the componnent
