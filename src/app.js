@@ -1,17 +1,18 @@
-import React from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from "./components/HeaderComponent";
 import Appbody from "./components/Appbody";
 import '../index.scss';
-import '../index.css';
-import About from "./components/About";
+//import About from "./components/About";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import FooterComponent from "./components/FooterComponent";
 import ChatComponent from "./components/ChatComponent";
+import { themeContext } from "./utills/UserContext";
+import ThemeSwitch from "./components/ThemeSwitch";
 
 
 // const heading = document.createElement('h1');
@@ -39,26 +40,37 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<ReactEle />);
 
 const AppLayout = () => {
+  const [isLight, setIsLight] = useState(false);
+  const themeupdate = isLight ? 'Dark' : 'Light';
+
   return (
-    <div className="app ">
-      <HeaderComponent />
-      <div className="main-content">
-        <div className="container">
-          <Outlet />
+    <themeContext.Provider value={themeupdate}>
+      <div className={'app ' + themeupdate}>
+        <HeaderComponent />
+        <div className="main-content ">
+          <div className="container">
+            <Outlet />
+          </div>
         </div>
+        <FooterComponent />
+        <ChatComponent />
+        <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
       </div>
-      <FooterComponent />
-      <ChatComponent />
-    </div>
+    </themeContext.Provider>
+
   )
 }
+
+const About = lazy(() => import('./components/About'));
+
+
 
 const appRouter = createBrowserRouter([
   {
     path: '/', element: <AppLayout />,
     children: [
       { path: '/', element: <Appbody /> },
-      { path: '/about', element: <About /> },
+      { path: '/about', element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense> },
       { path: '/contact', element: <Contact /> },
       { path: '/restaurants/:resId', element: <RestaurantMenu /> }
     ], errorElement: <Error />

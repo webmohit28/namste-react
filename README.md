@@ -121,6 +121,37 @@ it findout the difference between virtal dom and update the component UI
  - Client Side Routing
  - Server Side Routing
 
+
+ # Hiigher order component 
+ - is a function that takes a component as a input and enhace it and return back new component
+
+ # Controlled and Uncontrolled components
+ - parent doesnot have control to their children
+ - if parent is controlling children and telling what to do
+
+# lifting state up 
+- Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up
+
+ # Prop drilling 
+ - is a common problem in React applications where data is passed down through multiple levels of components. It can make it difficult to maintain and update the application state. To avoid prop drilling, it's recommended to use Context or state management libraries such as Redux or MobX, which allow you to centralize data and make it more accessible throughout the application. 
+
+
+# Context - when you have to use data in multiple place or globally (an alternative to passing props)
+ - createContext
+- useContext - useContext is a React Hook that lets you read and subscribe to context from your component
+- for class based component
+    - <usercontext.Consumer>{(data)=> console.log(data)}</usercontext.Consumer> 
+- <usercontext.Provider value={{loggedInuser:newval}}>{(data)=> console.log(data)}</usercontext.Provider> 
+
+# How redux work behind the scene - https://prnt.sc/k6M6iYu6QYkc
+
+- when we click on add button
+- it action/dispatch
+- then it call reducer function
+- it update the redux store
+
+- subcribe to the redux store by using selector (to get data in cart)
+
  # Redux Toolkit
   - Install @reduxjs/toolkit and react-redux
   - Build our store

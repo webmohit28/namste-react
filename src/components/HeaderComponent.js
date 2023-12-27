@@ -1,8 +1,12 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UserContext from "../utills/UserContext";
 
 const HeaderComponent = () => {
   const [btnName, setBtnName] = useState('Log In');
+
+  const data = useContext(UserContext);
+  const { loggedInUser, role } = data;
 
   const setAutorizeBtn = () => {
     btnName === 'Log In' ? setBtnName('Log Out') : setBtnName('Log In');
@@ -46,14 +50,20 @@ const HeaderComponent = () => {
                   isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
                 }> Contact Us</NavLink>
               </li>
+
               <li className="nav-item ml-auto">
-                <button className={btnName === 'Log In' ? 'nav-link btn-login' : 'nav-link btn-logout'} onClick={setAutorizeBtn}>{btnName}</button>
+                {
+                  loggedInUser ? <button className="nav-link btn-user" title={loggedInUser}>{loggedInUser.split(' ')[0].charAt(0) + '' + loggedInUser.split(' ')[1].charAt(0)}</button> : <button className={btnName === 'Log In' ? 'nav-link btn-login' : 'nav-link btn-logout'} onClick={setAutorizeBtn}>{btnName}</button>
+                }
+
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
+
   )
 }
 

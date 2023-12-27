@@ -1,5 +1,9 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css);
+
+
+
 header {
-  background: #ffffff;
+  background: #fff;
   padding: 10px 0;
   margin-bottom: 30px;
   border-bottom: 1px solid #eeee;
@@ -19,6 +23,22 @@ header {
     min-width: 100px;
     display: block;
     font-weight: 600;
+    color: #fff;
+  }
+}
+
+.Dark {
+  background: #333;
+
+  header,
+  .card-body,
+  .card {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+
+  .nav-link {
     color: #fff;
   }
 }
@@ -68,6 +88,23 @@ body {
   color: #4CAF50;
 }
 
+.card-link {
+  text-decoration: none;
+}
+
+.rating-col {
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .shimmer-item {
   .card {
     height: 300px;
@@ -89,14 +126,21 @@ body {
   max-width: 75%;
 }
 
-
+span.avgRating {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  float: right;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #4caf51;
+}
 
 .restaurant-card {
-  max-width: 100%;
+  max-width: 80%;
   margin: auto;
-  background: #fff;
   padding: 30px;
-  border-radius: 10px;
+
 
   h1 {
     color: #000;
@@ -116,11 +160,12 @@ body {
 
 .chat-item {
   position: fixed;
-  bottom: 30px;
+  top: 24px;
   right: 30px;
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  z-index: 99;
 
   &.Online {
     background: #4CAF50;
@@ -128,5 +173,153 @@ body {
 
   &.Offline {
     background: red;
+  }
+}
+
+.menu-cat {
+  width: 25px;
+  height: 25px;
+  display: block;
+  padding: 5px;
+  border: 1px solid green;
+  text-align: center;
+  position: relative;
+  margin-bottom: 10px;
+
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: green;
+    left: 50%;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.non-veg {
+    border-color: red;
+
+    &::before {
+      background: red;
+    }
+  }
+}
+
+button.nav-link.btn-user {
+  background: #eee;
+  border-radius: 100%;
+  font-weight: bold;
+  color: #000;
+}
+
+.res-head {
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+
+.menu-block {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 10px;
+
+  .menu-img img {
+    max-height: 120px;
+  }
+
+  h5 {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid #eee;
+      padding-top: 16px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
+
+$dark: #000;
+$light: #fff;
+
+.switch {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 999;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &__label {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: $dark;
+    border-radius: 25px;
+    transition: 0.4s;
+    cursor: pointer;
+
+
+    &::before {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: auto;
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      border: 1px $dark solid;
+      background-color: $light;
+      color: $dark;
+      transition: 0.4s;
+      content: "";
+      font-family: "Font Awesome 5 Free";
+      font-size: 20px;
+      font-weight: 900;
+      box-sizing: border-box;
+    }
+  }
+
+  &__input:checked+.switch__label {
+    background-color: $light;
+
+    &::before {
+      left: calc(100% - 30px);
+      border-color: $light;
+      background-color: $dark;
+      color: $light;
+      content: "\f186";
+    }
   }
 }
