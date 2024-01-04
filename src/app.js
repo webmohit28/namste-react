@@ -13,6 +13,9 @@ import FooterComponent from "./components/FooterComponent";
 import ChatComponent from "./components/ChatComponent";
 import { themeContext } from "./utills/UserContext";
 import ThemeSwitch from "./components/ThemeSwitch";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
+import Cart from "./components/Cart";
 
 
 // const heading = document.createElement('h1');
@@ -44,27 +47,26 @@ const AppLayout = () => {
   const themeupdate = isLight ? 'Dark' : 'Light';
 
   return (
-    <themeContext.Provider value={themeupdate}>
-      <div className={'app ' + themeupdate}>
-        <HeaderComponent />
-        <div className="main-content ">
-          <div className="container">
-            <Outlet />
+    <Provider store={appStore}>
+      <themeContext.Provider value={themeupdate}>
+        <div className={'app ' + themeupdate}>
+          <HeaderComponent />
+          <div className="main-content ">
+            <div className="container">
+              <Outlet />
+            </div>
           </div>
+          <FooterComponent />
+          <ChatComponent />
+          <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
         </div>
-        <FooterComponent />
-        <ChatComponent />
-        <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
-      </div>
-    </themeContext.Provider>
+      </themeContext.Provider>
+    </Provider>
 
   )
 }
 
 const About = lazy(() => import('./components/About'));
-
-
-
 const appRouter = createBrowserRouter([
   {
     path: '/', element: <AppLayout />,
@@ -72,6 +74,7 @@ const appRouter = createBrowserRouter([
       { path: '/', element: <Appbody /> },
       { path: '/about', element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense> },
       { path: '/contact', element: <Contact /> },
+      { path: '/cart', element: <Cart /> },
       { path: '/restaurants/:resId', element: <RestaurantMenu /> }
     ], errorElement: <Error />
   },

@@ -23,9 +23,9 @@ const Appbody = () => {
     );
 
     const json = await result.json();
-    setListOfRestraunt(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    //console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestraunt(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    //console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
   const showFilterReestaurant = () => {
@@ -63,9 +63,10 @@ const Appbody = () => {
           {/* {
             filteredRestaurant?.map((restaurant) => (<RestaurantCard resData={restaurant} key={restaurant?.info?.id} />))
           } */
-            //console.log(filteredRestaurant)
+            // console.log(filteredRestaurant)
           }
           {
+
             filteredRestaurant?.map((restaurant) => (
               <Link to={'restaurants/' + restaurant?.info?.id} className="col-md-4 card-link" key={restaurant?.info?.id}>
 

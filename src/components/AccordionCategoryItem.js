@@ -1,5 +1,12 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
+
 const AccordionCategoryItem = ({ itemCards }) => {
-  return (<ul className="accordion-content">
+  const dispatch = useDispatch();
+  const handleAddtoCart = (item) => {
+    dispatch(addItem(item))
+  }
+  return (
     <ul className="accordion-content">
       {
         itemCards.map(
@@ -12,12 +19,15 @@ const AccordionCategoryItem = ({ itemCards }) => {
             </div>
             <div className="menu-img">
               <img src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/' + item.card.info.imageId} />
+              <button type="button" className="btn add-item" onClick={() => handleAddtoCart(item)}>Add Item +</button>
             </div>
+
+
           </li>)
         )
       }
-    </ul>
-  </ul>);
+
+    </ul>);
 }
 
 export default AccordionCategoryItem;

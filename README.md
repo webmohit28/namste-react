@@ -154,11 +154,11 @@ it findout the difference between virtal dom and update the component UI
 
  # Redux Toolkit
   - Install @reduxjs/toolkit and react-redux
-  - Build our store
-  - Connect our store to our app
-  - Slice (cartSlice)
-  - dispatch(action)
-  - Selector
+  - Build our store - configure the store by using configureStore() from rtk
+  - Connect our store to our app by using Provider (with store={} props) from react-redux 
+  - Slice (cartSlice) - by using createSlice() from rtk
+  - dispatch(action) - useDispatch - dispatch the reducer function
+  - Selector -  how to subsribe the store by using selector useSelector()
 
 
 # Types of testing (devloper)

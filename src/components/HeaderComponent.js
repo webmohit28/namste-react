@@ -1,6 +1,7 @@
 import { React, useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../utills/UserContext";
+import { useSelector } from "react-redux";
 
 const HeaderComponent = () => {
   const [btnName, setBtnName] = useState('Log In');
@@ -11,6 +12,9 @@ const HeaderComponent = () => {
   const setAutorizeBtn = () => {
     btnName === 'Log In' ? setBtnName('Log Out') : setBtnName('Log In');
   }
+
+  const cartItem = useSelector((store) => store.cart.items);
+  //console.log(cartItem);
 
   return (
     <header>
@@ -49,6 +53,14 @@ const HeaderComponent = () => {
                 <NavLink to="/contact" className={({ isActive, isPending }) =>
                   isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
                 }> Contact Us</NavLink>
+              </li>
+
+              <li className="nav-item">
+                {
+                  loggedInUser && <NavLink to="/cart" className={({ isActive, isPending }) =>
+                    isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link"
+                  }> Cart <b className="cart-item-num">{cartItem?.length} Item</b></NavLink>
+                }
               </li>
 
               <li className="nav-item ml-auto">

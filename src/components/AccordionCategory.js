@@ -12,7 +12,7 @@ const AccordionCategory = (props) => {
   }
   return (
     <div className='menu-block'>
-      <h5 onClick={showHideCatMenu}> {title} - ({itemCards.length}) <span>{showItems ? '-' : '+'}</span> </h5>
+      <h5 className="test" onClick={showHideCatMenu}> {title} - ({itemCards.length}) <span>{showItems ? '-' : '+'}</span> </h5>
       {showItems && <AccordionCategoryItem itemCards={itemCards} />}
     </div>
   )
