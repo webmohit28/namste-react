@@ -162,9 +162,9 @@ it findout the difference between virtal dom and update the component UI
 
 
 # Types of testing (devloper)
- - Unit Testing
- - Integration Testing
- - End to End Testing - e2e testing
+ - Unit Testing - testing specific small unit of react application (testing one unit in isolation)
+ - Integration Testing - testing the integration of components (specific feature)
+ - End to End Testing - e2e testing - testing from user land to page and leave the page (whole application)
 
 # Setting up Testing in our app
  - Install React Testing Library
@@ -178,3 +178,5 @@ it findout the difference between virtal dom and update the component UI
  - Include @babel/preset-react inside my babel config
  - npm i -D @testing-library/jest-dom
  
+
+ - whenever you are testing UI component inside react - you will have to render component in JSDOM - render(<compName />)

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderComponent from "./components/HeaderComponent";
 import Appbody from "./components/Appbody";
 import '../index.scss';
+import '../index.css';
 //import About from "./components/About";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";

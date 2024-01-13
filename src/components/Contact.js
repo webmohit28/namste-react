@@ -25,7 +25,7 @@ const Contact = () => {
   }
 
   return (<div>
-    <div>Count {count}</div>
+    <h2>Count {count}</h2>
     <button onClick={handleStart}>Start</button>
     <button onClick={handleStop}>Stop</button>
     <button onClick={handleReset}>Reset</button>

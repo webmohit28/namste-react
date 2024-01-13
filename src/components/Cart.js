@@ -5,6 +5,9 @@ import { clearCart, removeItem } from "../store/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
+  //console.log(cartItems);
+  const totalVAL = cartItems.reduce((acc, item) => acc + item.card.info.price / 100, 0);
+  //console.log(total)
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(clearCart())
@@ -19,6 +22,7 @@ const Cart = () => {
 
 
       {
+
         cartItems.map((item, index) =>
           <div className="cart-selected-list">
             <h6>{item?.card?.info?.name}</h6>
@@ -26,6 +30,7 @@ const Cart = () => {
 
           </div>)
       }
+      {cartItems.length && <h4 className="text-end">Total Value : {totalVAL}</h4>}
       {cartItems.length === 0 && <p>No Item Added in Cart</p>}
     </div >
 
